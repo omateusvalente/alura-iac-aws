@@ -10,7 +10,7 @@ terraform {
 }
 
 provider "aws" {
-  region = "us-east-1"
+  region = var.regiao_aws
 }
 
 data "aws_ami" "ubuntu" {
@@ -26,15 +26,14 @@ data "aws_ami" "ubuntu" {
 
 resource "aws_instance" "app_server" {
   ami           = data.aws_ami.ubuntu.id
-  instance_type = "t2.micro"
-  key_name = "iac-alura"
-  # user_data = <<-EOF
-  #                #! /bin/bash
-  #                cd /home/ubuntu
-  #                echo "<h1>Feito com terraform</>" > index.html
-  #                nohup busybox httpd -f -p 8080 &
-  #                EOF
+  instance_type = var.instancia
+  key_name = var.chave
   tags = {
-    Name = "learn-terraform"
+    Name = "terraform ansible python"
   }
+}
+
+resource "aws_key_pair" "chaveSSH" {
+  key_name = var.chave
+  public_key = file("${var.chave}.pub")
 }
