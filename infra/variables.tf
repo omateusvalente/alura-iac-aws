@@ -1,11 +1,15 @@
 variable "regiao_aws" {
-  type        = string
+  type = string
 }
 
 variable "chave" {
-  type        = string
+  type = string
 }
 
 variable "instancia" {
-  type        = string
+  type = string
+}
+
+variable "ambiente" {
+  type = string
 }

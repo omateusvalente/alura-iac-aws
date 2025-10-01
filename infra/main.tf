@@ -31,6 +31,7 @@ resource "aws_instance" "app_server" {
   tags = {
     Name = "terraform ansible python"
   }
+  security_groups = [aws_security_group.acesso_geral.name] 
 }
 
 resource "aws_key_pair" "chaveSSH" {
