@@ -14,5 +14,5 @@ crash.*.log
 *.pem
 *.pub
 
-*/env/Dev/IAC*
-*/env/Prod/IAC*
+*/env/Dev/IaC*
+*/env/Prod/IaC*
