@@ -1,16 +1,11 @@
 ### Terraform ###
 # Local .terraform directories
 **/.terraform/*
+*.terraform*
 
 # .tfstate files
 *.tfstate
 *.tfstate.*
 
-# Crash log files
-crash.log
-crash.*.log
-
-# Keys .pem .pub
-*.pem
-
-*IaC-*
+# Key 
+**/IaC-*
