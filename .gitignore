@@ -12,7 +12,5 @@ crash.*.log
 
 # Keys .pem .pub
 *.pem
-*.pub
 
-*/env/Dev/IaC*
-*/env/Prod/IaC*
+*IaC-*
