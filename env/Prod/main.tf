@@ -1,6 +1,6 @@
 module "aws-prod" {
   source = "../../infra"
-  instancia = "t2.small"
+  instancia = "t2.micro"
   regiao_aws = "us-west-1"
   chave = "IaC-PROD"
   grupoDeSeguranca = "prod"
