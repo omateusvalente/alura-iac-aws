@@ -10,6 +10,18 @@ variable "instancia" {
   type = string
 }
 
-variable "ambiente" {
+variable "grupoDeSeguranca" {
+  type = string
+}
+
+variable minimo {
+  type = number
+}
+
+variable maximo {
+  type = number
+}
+
+variable "nomeGrupo" {
   type = string
 }

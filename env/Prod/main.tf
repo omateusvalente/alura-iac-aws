@@ -3,9 +3,8 @@ module "aws-prod" {
   instancia = "t2.small"
   regiao_aws = "us-west-1"
   chave = "IaC-PROD"
-  ambiente = "prod"
-}
-
-output "IP" {
-  value = module.aws-prod.IP_publico
+  grupoDeSeguranca = "prod"
+  minimo = 1
+  maximo = 10
+  nomeGrupo = "prod"
 }

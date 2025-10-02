@@ -24,14 +24,14 @@ data "aws_ami" "ubuntu" {
   owners = ["099720109477"] # Canonical
 }
 
-resource "aws_instance" "app_server" {
-  ami           = data.aws_ami.ubuntu.id
+resource "aws_launch_template" "maquina" {
+  image_id = data.aws_ami.ubuntu.id
   instance_type = var.instancia
   key_name = var.chave
   tags = {
-    Name = "terraform ansible python"
+    Name = "Terraform Ansible Python"
   }
-  security_groups = [aws_security_group.acesso_geral.name] 
+  security_groups_name = [ var.grupoDeSeguranca ]
 }
 
 resource "aws_key_pair" "chaveSSH" {
@@ -39,6 +39,13 @@ resource "aws_key_pair" "chaveSSH" {
   public_key = file("${var.chave}.pub")
 }
 
-output "IP_publico" {
-  value = aws_instance.app_server.public_ip
+resource "aws_auto_scaling_group" "grupo" {
+  availabily_zones = ["${var.regiao_aws}a"]
+  name = var.nomeGrupo
+  max_size = var.maximo
+  min_size = var.minimo
+  launch_template {
+    id = aws_launch_template.maquina.id
+    version = $Latest
+  }
 }
