@@ -30,8 +30,7 @@ O projeto foi desenvolvido no VSC (Visual Studio Code), sendo assim, instale o V
 
 > Caso baixou o zip, extraia o projeto antes de procurá-lo, pois não é possível abrir via arquivo zip
 
-> Foi necessário realizar a build com a tag --platform linux/amd64 por estar utilizando mac
-> docker build --platform linux/amd64 -t producao:amd64 . 
+> Foi necessário realizar a build com a tag --platform linux/amd64 por estar utilizando mac: docker build --platform linux/amd64 -t producao:amd64 . 
 
 Vá até a paste a abra a pasta do projeto. Apos abrir o projeto abra um terminal, pode ser o integrado com o VSC, navegue até as pastas `infra/`,`env/Prod` e `env/homolog` e execute o comando `terraform init` dentro delas, agora temos o terraform iniciado e podemos começar a ultiliza-lo. Para criar a infraestrutura, execute o terraform apply em uma das pastas de Produção (`env/Prod`) ou de Homologação (`env/homolog`) de acordo com o ambiente desejado.
 
